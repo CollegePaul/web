@@ -10,6 +10,6 @@ https://github.com/CollegePaul/web/tree/main/CSS_Grid_Website
 
 ## CSS grid example  
 An example of css grid, svg graphics and font-awsome
-https://github.com/CollegePaul/web/tree/main/dark_mode
+https://github.com/CollegePaul/web/tree/main/Dark_mode
 
 ![Alt text](markdown_images/dark.jpg?raw=true "notes")
