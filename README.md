@@ -5,6 +5,8 @@
 An example of css grid, svg graphics and font-awsome
 https://github.com/CollegePaul/web/tree/main/CSS_Grid_Website
 
+video - https://youtu.be/khBVBhopUHU
+
 ![Alt text](markdown_images/grid.png?raw=true "notes")
 
 
