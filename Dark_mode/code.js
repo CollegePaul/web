@@ -1,4 +1,4 @@
-
+//paul smith
 const toggle = document.getElementById('dark');
 
 toggle.addEventListener('click', handleToggle);
