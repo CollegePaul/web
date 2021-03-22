@@ -1,4 +1,5 @@
 //paul smith
+//22/03/2021
 const toggle = document.getElementById('dark');
 
 toggle.addEventListener('click', handleToggle);
