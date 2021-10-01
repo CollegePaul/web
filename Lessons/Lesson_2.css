@@ -1,0 +1,63 @@
+/* Fonts */
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Colours - notice how I change all h2 elements */
+h2 {
+    color: blue;
+}
+
+/* Remove the underscore - good for buttons */
+a {
+   color: crimson;
+   text-decoration: none;
+}
+
+/* change an image size */
+img {
+    width: 100px;
+    height: 90px;
+}
+
+/* add the table borders */
+table,th,td {
+    border:1px solid darkblue;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Colour the header of the table */
+th {
+    background-color:lightblue;
+}
+
+/* Remove the bullet points - useful for buttons */
+ul{
+    list-style-type: none;
+}
+
+/* only the li, that are in the ul, not the ol ones */
+ul li {
+    background-color: darkgray;
+    margin: 5px;
+    padding: 3px;
+    width: 100px;
+    text-align: center;
+}
+
+/* a custom tag to change just one of the li's*/
+#selected {
+    background-color: lightgreen;
+    border: 1px solid black;
+}
+
+/* a lot of content will be seperated in a div, or div in a div */
+div {
+    margin: 50px;
+    background-color: deeppink;
+    width: 50%;
+    padding:20px;
+    text-align: center;
+}
