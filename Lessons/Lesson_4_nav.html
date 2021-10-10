@@ -6,21 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Navbar</title>
     <link rel="stylesheet" href="Lesson_4.css">
+    <!-- This is from cdnjs https://cdnjs.com/libraries/font-awesome/5.15.4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    
+
+    <!-This is the menu, #links are placeholders -->
   <div class="topnav" id="myTopnav">
     <a href="#home" class="active">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
+    <!-- The void 0 returns undefined an prevents another page opening up -->
+    <!-- myFunction is the function the link will call upon being clicked -->
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
+      <!-- https://fontawesome.com/v5.15/icons/bars?style=solid -->
+      <i id="burger" class="fa fa-bars"></i>
     </a>
   </div>
 
   <script>
+    // Javascript code, this will toggle the classname of myTopnav element
+    // if it is clicked, the responsive tag is added, if the tag is pressent it will
+    // remove it
     function myFunction() {
       var x = document.getElementById("myTopnav");
       if (x.className === "topnav") {
@@ -28,9 +36,22 @@
       } else {
         x.className = "topnav";
       }
+
+      //extra code to change the icon
+      var b = document.getElementById("burger");
+      if(b.className === "fa fa-bars") {
+        b.className = "fa fa-chevron-up";
+      } else {
+        b.className = "fa fa-bars"
+      }
+      
     }
     </script>
 
+<!-- This has been adapeted from W3 Shcools responsive navbar, have a look on the site for more 
+     examples. I have added an Icon change to show how extra code could be used to customise this.
+-->
 
 </body>
 </html>
+
