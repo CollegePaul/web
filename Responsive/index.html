@@ -1,0 +1,103 @@
+<!-- CSS Grid Responsive Desgin -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>CSS Grid Layout</title>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active">Home</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <!-- The void 0 returns undefined an prevents another page opening up -->
+                <!-- myFunction is the function the link will call upon being clicked -->
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                  <!-- https://fontawesome.com/v5.15/icons/bars?style=solid -->
+                  <i id="burger" class="fa fa-bars"></i>
+                </a>
+              </div>
+
+
+        </nav>
+        <main><h2>Main</h2>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum gravida elit eu hendrerit. Phasellus dignissim nibh nisi, et varius felis gravida sed. Mauris faucibus quis metus non consequat. In lorem lorem, euismod vel felis eget, aliquet dignissim nibh. Donec a justo aliquet, vestibulum nisi a, semper nisi. Aenean eleifend ante maximus, imperdiet magna pulvinar, bibendum quam. Cras iaculis mauris ipsum, mollis accumsan ante elementum eu.</p>
+ 
+        </main>
+        <div id="sidebar">
+
+            <div class="card">
+                    <div class="circle">
+                        <img class="round" src="images/graphics.png" alt="Graphics">
+                    </div>
+                    <div class="text">Create SVG graphics with figma</div>
+            </div>
+
+            <div class="card">
+                <div class="circle">
+                    <img class="round" src="images/camera.png" alt="Graphics">
+                </div>
+                <div class="text">Take images annd edit with photoshop</div>
+        </div>
+
+        <div class="card">
+            <div class="circle">
+                <img class="round" src="images/palette.png" alt="Graphics">
+            </div>
+            <div class="text">Use custom colour pallets and profiles</div>
+    </div>
+
+        </div>
+        <div id="content1"><h2>SVG</h2>
+           
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum gravida elit eu hendrerit. Phasellus dignissim nibh nisi, et varius felis gravida sed. Mauris faucibus quis metus non consequat. In lorem lorem, euismod vel felis eget, aliquet dignissim nibh. Donec a justo aliquet, vestibulum nisi a, semper nisi. Aenean eleifend ante maximus, imperdiet magna pulvinar, bibendum quam. Cras iaculis mauris ipsum, mollis accumsan ante elementum eu.</p>
+        </div>
+        
+        <div id="content2"><h2>Photos</h2>
+           
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum gravida elit eu hendrerit. Phasellus dignissim nibh nisi, et varius felis gravida sed. Mauris faucibus quis metus non consequat. In lorem lorem, euismod vel felis eget, aliquet dignissim nibh. Donec a justo aliquet, vestibulum nisi a, semper nisi. Aenean eleifend ante maximus, imperdiet magna pulvinar, bibendum quam. Cras iaculis mauris ipsum, mollis accumsan ante elementum eu.</p>
+        </div>
+
+        <div id="content3"><h2>Colour</h2>
+           
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse elementum gravida elit eu hendrerit. Phasellus dignissim nibh nisi, et varius felis gravida sed. Mauris faucibus quis metus non consequat. In lorem lorem, euismod vel felis eget, aliquet dignissim nibh. Donec a justo aliquet, vestibulum nisi a, semper nisi. Aenean eleifend ante maximus, imperdiet magna pulvinar, bibendum quam. Cras iaculis mauris ipsum, mollis accumsan ante elementum eu.</p>
+        </div>
+        <footer>Footer</footer>
+    </div>
+
+
+    <script>
+        // Javascript code, this will toggle the classname of myTopnav element
+        // if it is clicked, the responsive tag is added, if the tag is pressent it will
+        // remove it
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+    
+          //extra code to change the icon
+          var b = document.getElementById("burger");
+          if(b.className === "fa fa-bars") {
+            b.className = "fa fa-chevron-up";
+          } else {
+            b.className = "fa fa-bars"
+          }
+          
+        }
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+body{
+    background-color: #333333;
+}
+
+:root{
+    --main-radius: 5px;
+    --main-padding: 10px;
+}
+
+h2{
+    color: #84b1ff;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: rgb(43, 43, 53);
+    border-bottom: #1457cb solid 2px;
+}
+  
+/* The navigation bar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* The hover state */
+.topnav a:hover {
+  background-color: rgb(202, 204, 206);
+  color: #1457cb;
+}
+  
+.topnav a.active {
+  background-color: #1457cb;
+  color: white;
+}
+  
+/* The font awsonm havberger icon */
+.topnav .icon {
+  display: none;
+}
+
+
+.container{
+    display: grid;
+    height: 100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    
+    text-align: center;
+    gap: 0.5rem 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .2fr 1.5fr 1.2fr .8fr;
+    grid-template-areas: 
+        "nav nav nav nav"
+        "sidebar main main main"
+        "sidebar content1 content2 content3"
+        "footer footer footer footer"
+}
+
+nav {
+    
+    grid-area: nav;
+    
+}
+
+main {
+    
+    grid-area: main;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+#sidebar {
+    
+
+    grid-area: sidebar;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+#content1{
+    
+    grid-area: content1;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+#content2{
+  
+    grid-area: content2;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+#content3{
+    
+    grid-area: content3;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+footer{
+    background-color: rgb(44, 44, 56);
+    grid-area: footer;
+    border-radius: var(--main-radius);
+    padding-top: var(--main-padding);
+}
+
+p{
+    padding: 2rem;
+    text-align: justify;
+}
+
+.round{
+    height:100%;
+}
+
+.card{
+    
+    height:100px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed rgb(107, 107, 107);
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.circle{
+    float: left;
+    height: 100%;
+  
+
+}
+
+.text{
+    float: left;
+    width:60%;
+    
+    text-align: left;
+    padding: 10px;
+}
+
+
+/* responsive */
+@media only screen and (max-width: 1056px){
+    .text{
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .text{
+        display: block;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas: 
+            "nav"
+            "sidebar"
+            "main"
+            "content1"
+            "content2"
+            "content3"
+            "footer";
+    } 
+
+     /* hide all but the first a tag */
+  .topnav a:not(:first-child) {display: none;}
+
+  /* make the menu bars visable */
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  /* This section relates to the menu when the bars have been clicked */
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /* This will show the links */
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
