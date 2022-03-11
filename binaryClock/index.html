@@ -1,0 +1,100 @@
+<!-- Clock Example ,Paul Smith 11/03/22, v1.00 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Clock</title>
+    <style>
+    *{
+        padding: 0;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    
+    body{
+        background-color: #333333;
+    }
+    
+    #container{
+        margin:auto;
+        height: 100vh;
+        width: 100vh;
+       
+    }
+    
+    .pixel{
+        float: left;
+        width: calc(100% / 16);
+        height: calc(100% / 16);
+        background-color: #333333;
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script>
+        //make a grid
+        container = document.getElementById("container")
+
+        //fill with divs
+        for (let row=0; row<16 ; row++){
+            for (let col=0; col<16 ; col++){
+                e = document.createElement("div")
+                e.setAttribute('class', 'pixel')
+                container.appendChild(e)
+            }
+        }
+
+        //cache the divs
+        pixels = document.querySelectorAll('.pixel')
+        
+        //set 1 div to a colour "rgb(255,0,0)"
+        function setPixel(x,y,col){
+            //convert to 1d
+            pixels[y*16+x].style.background = col
+        }
+
+        //set the 8 pixels for seconds
+        function setSecond(num,col){
+            binary = (num >>> 0).toString(2)
+            console.log(binary)
+
+            //make sure the are set back to blank
+            for (let d = 0; d< 8 ; d++){
+                setPixel(6+d,4,"#333333")
+            }
+
+            //set "1" to white, backward over string
+            for (let d = binary.length-1 ; d>-1; d--){
+                if(binary[d]=="1"){
+                    console.log(d)
+                    setPixel(6+d,4,"rgb(255,255,255)")
+                }
+            }
+
+           
+        }
+
+        //get time
+        function getTime(){
+            let today = new Date();
+            let s = today.getSeconds();
+            setSecond(s,"rgb(255,0,0)")
+        }
+
+        //update evey second
+        setInterval(getTime,1000)
+        
+        
+
+        
+
+    </script>
+    
+</body>
+</html>
