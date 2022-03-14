@@ -19,11 +19,52 @@
 
         .container{
             margin: auto;
-            
             width: 1520px;
             height: 869px;
             background-image: url("map.png");
         }
+
+        canvas{
+            padding-top:346px;
+        }
+
+        .btn {
+  background: #ff5454;
+  background-image: -webkit-linear-gradient(top, #ff5454, #b82b2b);
+  background-image: -moz-linear-gradient(top, #ff5454, #b82b2b);
+  background-image: -ms-linear-gradient(top, #ff5454, #b82b2b);
+  background-image: -o-linear-gradient(top, #ff5454, #b82b2b);
+  background-image: linear-gradient(to bottom, #ff5454, #b82b2b);
+  -webkit-border-radius: 18;
+  -moz-border-radius: 18;
+  border-radius: 18px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 26px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #e8125d;
+  background-image: -webkit-linear-gradient(top, #e8125d, #d934d1);
+  background-image: -moz-linear-gradient(top, #e8125d, #d934d1);
+  background-image: -ms-linear-gradient(top, #e8125d, #d934d1);
+  background-image: -o-linear-gradient(top, #e8125d, #d934d1);
+  background-image: linear-gradient(to bottom, #e8125d, #d934d1);
+  text-decoration: none;
+}
+
+#mil{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+    color: white;
+    padding-top: 30px;
+    padding-left: 40px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
 
        
     </style>
@@ -31,52 +72,114 @@
 <body>
 
     <div class="container">
-        <canvas id="canvas" width="1520" height="869"></canvas>
+        <canvas id="canvas" width="1520" height="300"></canvas>
+        <div class="buttons">
+            <button class="btn" type="button" onclick="addMile()">Add Mile</button>
+            <button class="btn" type="button" onclick="addFive()">Add 5 Miles</button>
+          
+            <button class="btn" type="button" onclick="subOne()">Minus 1 Mile</button>
+        </div>
+        <div class="total"><h1 id="mil">Miles done: </h1></div>
     </div>
     
     <script>
+        let dist = 90
+
+        window.onload = function(){
+            
+            d = localStorage.getItem("cycleDist");
+            console.log(d)
+            if (d != null){
+                dist = d*1
+                updateText()
+            }
+        }
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
-        ctx.strokeStyle = "#000000";
+
+        let y = 50; // 396
+
+        milesH = document.getElementById('mil') 
+
+        milesH.innerHTML = "Miles Done: " + 0
+
+        ctx.strokeStyle = 'rgba(0,0,0,0.2)';
         ctx.lineWidth = 5
         ctx.beginPath();
-        ctx.moveTo(332,396)
-        ctx.lineTo(1410,548)
+        ctx.moveTo(332,y)
+        ctx.lineTo(1410,y+152)
         ctx.stroke();
-
-        miles = 1516
-        xdist = 1410 - 332  //1078
-        ydist = 396 - 332   //64
-        length = Math.sqrt(xdist*xdist + ydist*ydist)
-        console.log(length) //1079
         
-        function getTanFromDegrees(degrees) {
-            return Math.tan(degrees * Math.PI / 180);
-        }
+        let radius = 10
+        a = 0.1
+        
 
         function updateMiles(distance){
-            //1079
-            convert = length/1516
-            distanceNew = distance*convert
 
-            //16.84375 slope
-            //need the angle
-            console.log(Math.tan(64/178))
-            const ANGLE = 21.53690048805748 //degrees
-            const RADANGLE = 0.3758898241909767 //radians
-            distx = distance
-
+            //percentage
+            let percentage = distance / 1516
+            let newx = 1079 * percentage
+            let newy = newx * 0.14100186
+            
+            
             ctx.strokeStyle = "#FF0000";
             ctx.lineWidth = 5
             ctx.beginPath();
-            ctx.moveTo(332,396)
-            ctx.lineTo(1410,548)
+            ctx.moveTo(332,y)
+            ctx.lineTo(332+ newx, y + newy)
             ctx.stroke();
 
+            circle(332 + newx, y+newy)
         }
 
-        updateMiles(200)
+        
 
+
+        function circle(centerX,centerY){
+            ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+           
+            ctx.fillStyle = "rgba(255, 0, 0," + a + ")";
+            ctx.fill();
+            
+
+
+            radius += 0.2
+            a = 1 - radius / 18
+            if (radius> 18){
+                radius = 4
+            }
+     
+        }
+
+        function update(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            updateMiles(dist)
+
+
+            requestAnimationFrame(update)
+        }
+
+
+        function addMile(){
+            dist += 1
+            updateText()
+        
+        }
+        function addFive(){
+            dist += 5
+            updateText()
+        }
+        function subOne(){
+            dist -=1
+            updateText()
+        }
+
+        function updateText(){
+            milesH.innerHTML = "Miles Done: " + dist
+            localStorage.setItem("cycleDist", dist);
+        }
+
+        update();
 
     </script>
     
