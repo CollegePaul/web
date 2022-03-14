@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #222222;
+            padding-top: 60px;
+        }
+
+        .container{
+            margin: auto;
+            
+            width: 1520px;
+            height: 869px;
+            background-image: url("map.png");
+        }
+
+       
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <canvas id="canvas" width="1520" height="869"></canvas>
+    </div>
+    
+    <script>
+        let canvas = document.getElementById('canvas');
+        let ctx = canvas.getContext('2d');
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 5
+        ctx.beginPath();
+        ctx.moveTo(332,396)
+        ctx.lineTo(1410,548)
+        ctx.stroke();
+
+        miles = 1516
+        xdist = 1410 - 332  //1078
+        ydist = 396 - 332   //64
+        length = Math.sqrt(xdist*xdist + ydist*ydist)
+        console.log(length) //1079
+        
+        function getTanFromDegrees(degrees) {
+            return Math.tan(degrees * Math.PI / 180);
+        }
+
+        function updateMiles(distance){
+            //1079
+            convert = length/1516
+            distanceNew = distance*convert
+
+            //16.84375 slope
+            //need the angle
+            console.log(Math.tan(64/178))
+            const ANGLE = 21.53690048805748 //degrees
+            const RADANGLE = 0.3758898241909767 //radians
+            distx = distance
+
+            ctx.strokeStyle = "#FF0000";
+            ctx.lineWidth = 5
+            ctx.beginPath();
+            ctx.moveTo(332,396)
+            ctx.lineTo(1410,548)
+            ctx.stroke();
+
+        }
+
+        updateMiles(200)
+
+
+    </script>
+    
+</body>
+</html>
