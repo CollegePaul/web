@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+
+    <button onclick="myfunction(3)">Press me 3</button>
+    <button onclick="myfunction(5)">Press me 5</button>
+
+    <button id="mybutton">Press me 8</button>
+    <!-- show the button loading after script then the doc.get id in the onload event -->
+    
+
+
+    <script>
+       document.getElementById("mybutton").addEventListener("click",  () => {myfunction(8)} )
+        
+       const afunction = () => console.log("yyyyyyyyyyy")
+       
+       const myfunction = (n) => console.log("yay: " + n)
+
+       window.onload = function(){
+           console.log("script has started")
+       }
+
+       
+
+       const timeFunction = () => {
+            console.log("time!")
+        }
+
+        let timer = setTimeout(timeFunction,4000)
+
+        
+        
+
+    </script>
+    
+</body>
+</html>
