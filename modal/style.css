@@ -1,0 +1,55 @@
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    justify-content: space-evenly;
+    border: 1px solid #888;
+    width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animate;
+    animation-duration: 0.4s;
+    border-radius: 15px;
+    font-size: 60px;
+    display: flex;
+    font-family: 'Mountains of Christmas', cursive;
+    
+  }
+  
+  @keyframes animate {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button X */
+  #close {
+    position: absolute;
+    top:8px;
+    right: 14px;
+    color: lightslategray;
+    font-size: 28px;
+    margin: 0;
+  }
+  
+  #close:hover,
+  #close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
