@@ -1,0 +1,20 @@
+Error Log
+
+
+Vesion 0.1 Windows 
+
+19/01/22 - Ongoing
+Catagorys counts are incremental numbers and are not
+counting each one seperatly.
+Each catagory should have its own number.
+
+17/01/22 - Fixed
+Program crashes if csv file has more that 1000 records
+'list index out of bounds'
+List should be dynamic and not a fixed range
+
+15/01/22 - Fixed
+No book catagory found for book 507
+book should have catogory "poetry"
+
+

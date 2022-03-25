@@ -1,0 +1,22 @@
+Development Log
+
+19/0/23 - version 0.2
+Changed code to be fully OOP
+Added a loader Class to handel file loading.
+
+18/2/22 - version 0.1
+Feed back on console UI, added example format in prompt
+Fixed counting of genres totals
+Fixed error for lowercase genres not being counted
+
+16/1/22 - version 0.1
+Added ability for user to specify input filenames
+Fixed range error for book parsing
+Fixed error for importing book class
+
+15/1/22 - version 0.1
+Added csv file extension validation
+Fixed crashing when UTF-8 characters are present in CSV file
+
+
+
